@@ -26,26 +26,28 @@ board.
 
 The code is designed for use from the exoskeleton being fully extended and will move up and down
 in the full range of motion before allowing for button control to be used. Once the arm has moved
-through it's full range of motion test the button control and ensure it moves using this. The video
-below shows the expected sequence of events:
+through it's full range of motion test the button control and ensure it moves using this. 
 ### Normal function
 The 3rdYearProjCode.ino is loaded to the Arduino Nano Every board as for ExoProjTestCode.ino. Once 
 power is provided to the exoskeleton (both LEDs lit) motion of the arm can then be controlled with the
 controller. The video below shows and exoskeleton in action:
+
+https://github.com/maz-k/3rd-year-project/assets/149887419/a09b0e28-4f9d-47a9-9eaa-d40674acbff6
+
 ### Motion Analysis
 Videos take of the exoskeleton in action can be analaysed with object tracking software. Videos must
 be taken with the camera parallel to the users arm for optimal output. The analysis is performed from
 the command line. Navigate to the folder that holds the python file and enter:
->> python videoTracking3rdYearProj.py --video \videoPath\video.mp4 --tracker MEDIANFLOW
+`python videoTracking3rdYearProj.py --video \videoPath\video.mp4 --tracker MIL`
 
-\videoPath\vido.mp4 should be replaced with the path to your video. MEDIANFLOW is the tracker type 
-that has worked best with test videos but MIL, TLD, BOOSTING and CSRT are all accepted inputs. You 
+`\videoPath\vido.mp4` should be replaced with the path to your video. `MIL` is the tracker type 
+that has worked best with test videos but `MEDIANFLOW`, `TLD`, `BOOSTING` and `CSRT` are all accepted inputs. You 
 will then have to select the object to track - use the hand/controller as the end effector and select
 this:
 
 To analyse the output of the object run the generatePlots.m file. This will produce the position plot
 and estimations velocity when the length of the video and user's forearm length are inputted. Example
-inputs (for the video in 'Normal Function' above) are {VIDEO LENGTH} and {FOREARM LENGTH} giving the 
+inputs (for the video in 'Normal Function' above) are 16 (s) and 0.27 (m) giving the 
 outputs:
 
 ## Added Technical Details
